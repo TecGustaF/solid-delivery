@@ -1,4 +1,3 @@
-// ================= SRP =================
 class Pedido {
     int id;
 
@@ -17,7 +16,6 @@ class PedidoService {
     }
 }
 
-// ================= OCP =================
 interface Pagamento {
     void pagar();
 }
@@ -40,7 +38,6 @@ class Dinheiro implements Pagamento {
     }
 }
 
-// ================= LSP =================
 class Produto {
     void info() {
         System.out.println("Produto");
@@ -65,7 +62,6 @@ class Bebida extends Produto {
     }
 }
 
-// ================= ISP =================
 interface Relatorio {
     void gerar();
 }
@@ -86,7 +82,6 @@ class SistemaEntrega implements Entrega {
     }
 }
 
-// ================= DIP =================
 interface Notificacao {
     void enviar();
 }
@@ -115,33 +110,27 @@ class SistemaNotificacao {
     }
 }
 
-// ================= MAIN =================
 public class Main {
     public static void main(String[] args) {
 
-        // SRP
         Pedido pedido = new Pedido(1);
         PedidoService service = new PedidoService();
 
         service.salvar(pedido);
         service.exibir(pedido);
 
-        // OCP
         Pagamento pagamento = new Pix();
         pagamento.pagar();
 
-        // LSP
         Produto produto = new Pizza();
         produto.info();
 
-        // ISP
         SistemaRelatorio relatorio = new SistemaRelatorio();
         relatorio.gerar();
 
         SistemaEntrega entrega = new SistemaEntrega();
         entrega.entregar();
 
-        // DIP
         SistemaNotificacao notificacao =
                 new SistemaNotificacao(new Email());
 
